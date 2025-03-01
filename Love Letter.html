@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?love,romantic') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 15%;
+            background: rgba(255, 182, 193, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px pink;
+        }
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .no {
+            background-color: #ff0000;
+            color: white;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px white;
+        }
+        .hidden {
+            display: none;
+        }
+        .letter-container {
+            margin-top: 10%;
+            background: rgba(255, 105, 180, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px pink;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .heart {
+            font-size: 40px;
+            color: red;
+        }
+        .back-button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Question Page -->
+    <div class="container" id="questionPage">
+        <h1>Do You Love Me? ❤️</h1>
+        <button class="yes" onclick="areYouSure()">Yes</button>
+        <button class="no" onclick="askAgain()">No</button>
+    </div>
+    
+    <!-- Are You Sure Page -->
+    <div class="container hidden" id="surePage">
+        <h1>Are You Sure? ❤️</h1>
+        <button class="yes" onclick="loveYouMore()">Yes</button>
+        <button class="no" onclick="backToMain()">No</button>
+    </div>
+	
+    <!-- Final Confirmation Page -->
+    <div class="container hidden" id="finalPage">
+        <h1>I Love You More! ❤️❤️❤️</h1>
+        <button class="yes" onclick="showLoveLetter()">Open Love Letter</button>
+    </div>
+
+    <!-- Love Letter Page -->
+     <div class="letter-container hidden" id="loveLetterPage">
+        <h1 class="heart">❤️ My Love Letter to You ❤️</h1>
+        <p>My Sweetheart,</p>
+        <p>You are the most precious gift in my life. From the moment I met you, my heart knew it belonged to you. Every laugh, every smile, every sweet moment we share is a treasure I hold close💖</p>
+        <p>Every moment with you is a dream come true. I love you more than words can say!😘 I cherish you with all my heart, and I promise to love you today, tomorrow, and always and forever 💖</p>
+        <p>Forever yours, Babygirl!❤️</p>
+        <button class="back-button" onclick="backToMain()">Back to Main Page</button>
+    </div>
+
+    <script>
+        function askAgain() {
+            alert("You can't say no! Try again ❤️");
+        }
+
+        function areYouSure() {
+            document.getElementById('questionPage').classList.add('hidden');
+            document.getElementById('surePage').classList.remove('hidden');
+        }
+
+        function backToMain() {
+            document.getElementById('surePage').classList.add('hidden');
+            document.getElementById('finalPage').classList.add('hidden');
+            document.getElementById('loveLetterPage').classList.add('hidden');
+            document.getElementById('questionPage').classList.remove('hidden');
+        }
+
+        function loveYouMore() {
+            document.getElementById('surePage').classList.add('hidden');
+            document.getElementById('finalPage').classList.remove('hidden');
+        }
+
+        function showLoveLetter() {
+            document.getElementById('finalPage').classList.add('hidden');
+            document.getElementById('loveLetterPage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
